@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/index.css" rel="stylesheet">
+
+<title>Insert title here</title>
+</head>
+<body class="bodyZise text-center">
+	
+  	<form action="#"  class="form-signin needs-validation " th:action="@{/save}" th:object="${person}" method ="post">
+  		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		<div class="form-group text-left">
+			<label for="email" >Email Address:</label>
+			<input type="email" class="form-control" id="email" placeholder="Email Address.." required>
+			<div class="valid-feedback">Valid.</div><!-- Optional -->
+    		<div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+		<div class="form-group text-left">
+			<label for="pwd">Password:</label>
+			<input type="password" class="form-control" id="pwd" placeholder="Password.." required>
+			<div class="valid-feedback">Valid.</div>
+    		<div class="invalid-feedback">Please fill out this field.</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		
+		<br>
+		 <div class="container"><a href="Home">Ver vista de customer registrado</a></div>
+		<br>
+		<p class="mt-5 mb-3 text-muted">&copy; fredsys-2019</p>
+	</form>
+	
+  	
+	
+	<script>
+	// Disable form submissions if there are invalid fields
+		(function() {
+		  'use strict';
+		  window.addEventListener('load', function() {
+		    // Get the forms we want to add validation styles to
+		    var forms = document.getElementsByClassName('needs-validation');
+		    // Loop over them and prevent submission
+		    var validation = Array.prototype.filter.call(forms, function(form) {
+		      form.addEventListener('submit', function(event) {
+		        if (form.checkValidity() === false) {
+		          event.preventDefault();
+		          event.stopPropagation();
+		        }
+		        form.classList.add('was-validated');
+		      }, false);
+		    });
+		  }, false);
+		})();
+	</script>
+	
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/login.js"></script>
+</body>
+</html>

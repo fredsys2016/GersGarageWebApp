@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+            <meta charset="ISO-8859-1"> 
+		<meta name="FredSys" content="ISO Date, UTC Date">
+		<title>Bookings Available</title>
+
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/mycss.css" rel="stylesheet">
+        <link href="./css/home.css" rel="stylesheet">
+	</head>
+	<body class="text-center">
+        
+        <header class="text-left"><h1>Ger's Garage Management</h1>   </header>
+        <section>
+            <nav class="navbar navbar-expand-md navbar-dark ">
+                <a class="navbar-brand" href=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsGer" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="container ">
+                <div class="collapse navbar-collapse" id="navbarsGer">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="  nav-link " href="#">View Bookings<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link " href="newBooking">Create Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link active" href="#">Staff</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Work Schedule</a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" href="#">Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+            <div id="bodyBooking" class="  container">
+             
+                <form  action ="#" th:action="@{/saveStaff}" th:object="${person}" method ="post">
+                     <div class="form-group text-left">
+                        <label for="fn">First Name:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                 <span class="input-group-text">*</span>
+                            </div>
+                            <input th:field="*{first_name}" type="text" id="fn" class="form-control" placeholder="First Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group text-left">
+                        <label for="ln">Last Name:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">*</span>
+                            </div>
+                            <input th:field="*{last_name}" type="text" id="ln" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group text-left">
+                         <label for="pn">Phone Number:</label>
+                           <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">*</span>
+                             </div>
+                            <input th:field="*{phone_number}" type="text" id="pn" class="form-control" placeholder="Phone Number">
+                        </div>
+                    </div>                            
+         
+                    <div class="form-group text-left">
+                        <label for="rl">Roles:</label>
+                        <div class="input-group mb-3">
+                             <div class="input-group-prepend">
+                                <span class="input-group-text">*</span>
+                            </div>
+                            <select th:field="*{roles.id_role}"  id="rl" class="form-control">
+                                <option th:each="roles : ${lsRole}" th:value="${roles.id_role}" th:text="${roles.name}" value="" >Select a role</option>
+                            </select>			
+                        </div>
+                    </div>
+
+                    <div class="form-group text-left">
+                        <label for="em">Email:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">*</span>
+                            </div>
+                            <input th:field="*{email}" type="text" id="em" class="form-control" placeholder="Email">
+                        </div>
+                    </div>                       
+                     <div class="form-group text-left">
+                        <label for="ps">Password:</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">*</span>
+                                </div>
+                            <input th:field="*{password}" type="text" id="pn" class="form-control" placeholder="Vehicle License">
+                        </div>
+                    </div>                                                                 
+                    <button type="submit" class =" btnSave btn btn-primary">Save</button>
+                </form>
+            </div>
+            </section>
+        
+        <footer class="container text-center"><hr> <p> &copy; FredSys 2019 </p> 
+        </footer>
+
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/bookingM.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,63 @@
+@charset "UTF-8";
+html,
+body {
+  height: 100%;
+}
+.bodyZise {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 20%;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.formData
+{
+	  width: 100%;
+  	max-width: 600px;
+  	margin-top: 4%;
+}
+
+.btnSave
+{
+	width:25%;
+	background-color:#074f80;
+}
+
+.checkbx{
+	padding-left:10px;
+	color:blue;
+}
+
+
+nav{
+  background-color: 	 #003d66;
+  color: WhiteSmoke ;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+header{
+  font-size: 25px;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  color: #09456d;
+  margin-left: 10%;
+  padding: 2%;
+}
+
+hr{
+  background-color: #003d66;
+  height: 5px;
+}

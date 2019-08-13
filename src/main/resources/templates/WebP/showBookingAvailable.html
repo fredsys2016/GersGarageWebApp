@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1"> 
+		<meta name="FredSys" content="ISO Date, UTC Date">
+		<title>Bookings Available</title>
+		<link href="./css/mycss.css" rel="stylesheet">
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	<body >
+	
+	
+	<!-- View Menu -->
+		
+	        <header>
+				<div class="row">
+					<div class="col"><h1>Ger's Garage</h1> </div>
+					<div class="col"><p class="text-right">user2016@Gmail.com</p>  </div>
+				</div>
+			</header>
+							 
+			<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+				<a class="navbar-brand" href="#"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="container">
+				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item ">
+							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Mechanics Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#">Appointments</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="Register_Vehicle">My vehicles</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" href="#">Sign out</a>
+                        </li>
+                    </ul>
+				</div>
+			</div>
+			</nav>
+		
+	<div class="bodyZise text-center">
+	
+	<div class="sizeBooking container">
+		<ul class="nav nav-tabs">
+	        <li class="nav-item">
+	            <a href="#booking" class="nav-link active" data-toggle="tab">My Booking</a>
+	        </li>
+	        <li class="nav-item">
+	            <a href="#appointment" class="nav-link" data-toggle="tab">Appointment</a>
+	        </li>
+	    </ul>
+    	<div class="tab-content">
+	        <div class="tab-pane fade show active" id="booking">
+	            <!-- View of my booking -->
+					<table class="table">
+						<thead>
+							<tr> 
+								<th scope="col">#</th>  <th scope="col">Date</th> <th scope="col">Status</th><th scope="col">  </th>
+							</tr>
+						</thead>
+						<tbody id="myBooking">
+									<tr>
+										<th scope="row">1</th>
+										<td class="" > </td>
+										<td></td>
+										<td><button class="btn btn-primary">Cancel</button></td>
+									</tr>
+						</tbody>
+					</table>
+	            
+	        </div>
+	        <div class="tab-pane fade" id="appointment">
+	            <!-- view Appointment -->
+	            <div class=" sizeBooking text-center ">
+					
+						<div class="container ">
+							<div  class="row  headerSearch">
+								<div class="col" id="colF"> 
+									<button type="button" class="btn text-white" onclick="changeDate(0)">Back</button>
+								</div>
+								<div class="col colsm-auto " id="colM">
+									<p class="text-white" id="labelDay">Day</p>
+									<input onchange="onChangeDate()" id="inputdate" type="date" >
+								</div>
+								<div class="col" id="colL"> <button type="button" onclick="changeDate(1)" class="btn text-white">Next</button> </div>
+							</div>
+						</div>
+		
+						<div class="container">
+							<table id="tableBooking" class="table table-hover">
+										<thead>
+										  <tr >
+											<th scope="row"></th>
+											<th >Booking Available</th>
+											<th scope="col" ></th>
+										  </tr>
+										</thead>
+										<tbody id="idBody">
+										</tbody>
+							</table>
+						</div>
+					
+				</div>
+	        </div>
+        
+   		</div>
+ 	</div>
+		
+		
+		</div>
+    
+    
+
+
+
+
+
+
+<!--Form of Booking -->
+	<div class=" bodyZise text-center">
+			
+		
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+			
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+				<h4 class="modal-title">Appointment</h4>
+				</div>
+				<div class="modal-body">
+					<form class="modalForm" action="#" th:action="@{/book}" th:object="${booking}" method="POST" >
+								
+						<input readonly="readonly"  id="codeInput" th:field="*{id_booking}"   type="text"  class="form-control" >
+						<h3  id="dateTime">Date & Time go here..</h3>	
+						<div class="form-group text-left">
+							<label for="type">Type Booking</label>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">*</span>
+									</div>
+									<select id="type" th:field="*{bookingtype.id_bookingtype}" name="Type_Booking" class="form-control" >
+										
+										<option th:each="bookingtype : ${listBookingType}" th:value="${bookingtype.id_bookingtype}" th:text="${bookingtype.name}"  value="" ></option>
+									</select>			
+								</div>
+						</div>
+						<div class="form-group text-left">
+							<label for="veh">Vehicle</label>
+							<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">*</span>
+										</div>
+								<select id="veh" th:field="*{vehicle.id_vehicle}"  class="form-control" placeholder="Select one vehicle">
+												
+									<option th:each="vehicle : ${listVehicle}" th:value="${vehicle.id_vehicle}" th:text="${vehicle.make}" value="" >Select your vehicle</option>
+								</select>			
+							</div>
+						</div>
+								
+								
+						<button  type="submit" class="btnSave  btn btn-info">Book</button>
+						<button type="button" class="btnSave btn btn-danger" data-dismiss="modal">Cancel</button>
+							
+					</form>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+			
+			</div>
+		</div>
+		
+		</div>
+
+
+
+	<footer class="container text-center"><hr> <p> &copy; FredSys 2019 </p> 
+    </footer>
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/index.js"></script>
+	<script src="./js/booking.js"></script>
+	
+	
+	</body>
+</html>

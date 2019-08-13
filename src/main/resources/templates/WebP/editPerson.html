@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/index.css" rel="stylesheet">
+<style>
+                .bd-placeholder-img {
+                  font-size: 1.125rem;
+                  text-anchor: middle;
+                  -webkit-user-select: none;
+                  -moz-user-select: none;
+                  -ms-user-select: none;
+                  user-select: none;
+                }
+          
+                @media (min-width: 768px) {
+                  .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                  }
+                }
+              </style>
+<script>
+	// Disable form submissions if there are invalid fields
+		(function() {
+		  'use strict';
+		  window.addEventListener('load', function() {
+		    // Get the forms we want to add validation styles to
+		    var forms = document.getElementsByClassName('needs-validation');
+		    // Loop over them and prevent submission
+		    var validation = Array.prototype.filter.call(forms, function(form) {
+		      form.addEventListener('submit', function(event) {
+		        if (form.checkValidity() === false) {
+		          event.preventDefault();
+		          event.stopPropagation();
+		        }
+		        form.classList.add('was-validated');
+		      }, false);
+		    });
+		  }, false);
+		})();
+	</script>
+
+</head>
+<body class="text-center ">
+<div class="headerP">
+		<div class="page-header">
+            <h1>Ger's Garage</h1>
+        </div>
+         
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+            <a class="navbar-brand" href="#">..</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                     <li class="nav-item ">
+                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link" href="#">Mechanics Services</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                    </li>
+                     <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                    </li>
+                     <li class="nav-item active">
+                           <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+	
+	<div class="bodyZise">
+		<form class="formData needs-validation  " action ="#" th:action="@{/save}" th:object="${person}" method ="post">
+			<div class="form-group text-left">
+				<label for="number">Number</label>
+				<div class="form-check-inline">
+					<label class="form-check-label">
+						<input type="checkbox" class="form-check-input" value=""> edit
+					</label>
+				</div>
+		   		<input th:field="*{id_person}" type="number" class="form-control" id="number"  required>
+		   		<div class="valid-feedback">Valid.</div><!-- Optional -->
+		   		<div class="invalid-feedback">Please fill out this field.</div>
+		   		
+			</div>
+			<div class="form-group text-left">
+				<label for="firstName">First Name:</label>
+				<label for="chk" class="checkbx">
+					<input type="checkbox" id="chk"> edit
+				</label>
+	    		<input th:field="*{first_name}" type="text" class="form-control" id="firstName" placeholder="Enter your first name"  required>
+	    		<div class="valid-feedback">Valid.</div><!-- Optional -->
+	    		<div class="invalid-feedback">Please fill out this field.</div>
+	    		
+			</div>
+			<div class="form-group  text-left">
+				<label for="lastName">Last Name:</label>
+	    		<input th:field="*{last_name}" type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+	    		<div class="valid-feedback">Valid.</div><!-- Optional -->
+	    		<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group text-left">
+				
+				<label  for="phoneNumber">Phone Number</label>
+	    		<input th:field="*{phone_number}" type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+	    		<div class="valid-feedback">Valid.</div><!-- Optional -->
+	    		<div class="invalid-feedback">Please fill out this field.</div>
+	    				
+			</div>
+			<div class="form-group text-left">
+				<label for="email">Email Address</label>
+		    	<input th:field="*{email}" type="email" class="form-control" id="email" placeholder="Email address" required>
+		    	<div class="valid-feedback">Valid.</div><!-- Optional -->
+		    	<div class="invalid-feedback">Please fill out this field.</div>		
+			</div>
+			<div class="form-group text-left">
+				<label for="password">Password</label>
+	    		<input th:field="*{password}" type="text" class="form-control" id="password" placeholder="Password" required>
+	    		<div class="valid-feedback">Valid.</div><!-- Optional -->
+	    		<div class="invalid-feedback">Please fill out this field.</div>
+	    				
+			</div>
+			<button type="submit" class =" btnSave btn btn-primary">Save</button>
+		</form>
+		</div>
+		</div>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/login.js"></script>
+</body>
+</html>

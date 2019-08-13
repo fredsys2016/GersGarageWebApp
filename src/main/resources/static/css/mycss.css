@@ -1,0 +1,185 @@
+html,
+body {
+  height: 100%;
+}
+.bodyZise {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 2%;
+  padding-bottom: 40px;
+  color: #002e4d;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.formData
+{
+	width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  margin: auto;  
+}
+
+.displayTable{
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+  margin: auto; 
+}
+
+.sizeBooking{
+  width: 100%;
+  max-width: 450px;
+  padding: 15px;
+  margin: auto; 
+}
+
+.btnSave
+{
+	width:25%;
+	margin:2%;
+}
+
+.checkbx{
+	padding-left:10px;
+	color:blue;
+}
+
+.labelStyle
+{
+  border: 0px;
+  padding: 0%;
+  margin: 0%;
+  background-color:#cce6ff;
+
+}
+
+.boxBooking{
+  border-right:1px solid #007acc;
+  padding: 5px;
+  margin: 5px;
+}
+
+.headerP{
+  margin: 2%;
+}
+
+.titleForm{
+  text-align: center;
+}
+
+/*
+button Edit  Delete for table 
+*/
+.editDelete{
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+table{
+  margin: 10px;
+}
+
+
+/*
+disign dashboard for booking 
+*/
+#colF{
+  border-bottom: 1px solid #99ccff;
+  margin-top: 8px;
+}
+#colM{
+border-left: 1px solid #99ccff;
+border-right: 1px solid #99ccff;
+border-top: 1px solid #99ccff;
+color: #002e4d;
+}
+#colL{
+  border-bottom: 1px solid #99ccff;
+  margin-top: 8px;
+}
+#labelDay{
+  padding: 0%;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+
+/*
+------- booking page
+*/
+#codeInput
+{
+  width: 40%;
+  border-bottom:1px solid blue;
+  height: 50px;
+  margin-right: 30%;
+  margin-left: 30%; 
+  font-size: 25px;
+  padding: 2%;
+  background-color:white; 
+}
+
+.modalForm{
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+#dateTime{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+
+
+.xxxtab
+{
+	margin-top:5%;
+	max-width: 720px;
+	margin:5%;
+}
+
+nav{
+  background-color: 	 #003d66;
+  color: WhiteSmoke ;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.headerSearch
+{
+  background-color: #003d66;
+}
+
+header{
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #002e4d;
+  margin: 2%;
+}
+
+
+
+nav{
+  background-color: 	 #003d66;
+  color: WhiteSmoke ;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+
+.NewFormSize
+{
+  max-width: 500px;
+  margin-top: 4%;
+}

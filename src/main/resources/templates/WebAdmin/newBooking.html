@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+            <meta charset="ISO-8859-1"> 
+		<meta name="FredSys" content="ISO Date, UTC Date">
+		<title>Bookings Available</title>
+
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/mycss.css" rel="stylesheet">
+        <link href="./css/home.css" rel="stylesheet">
+	</head>
+	<body >
+        
+        <header><h1>Ger's Garage Management</h1>   </header>
+        
+            <nav class="navbar navbar-expand-md navbar-dark ">
+                <a class="navbar-brand" href=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsGer" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="container ">
+                <div class="collapse navbar-collapse" id="navbarsGer">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="  nav-link " href="#">View Bookings<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link active" href="#">Create Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link" href="newStaff">Staff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Work Schedule</a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" href="#">Sign out</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+    
+       
+        <div class=" text-center container">
+                        <input onchange="activaBTN()" type="date" id="dayBooking" >
+                        <!-- Button to Open the Modal -->
+                        <button id="openNewB" disabled onclick="passDate()" type="button" class="btn btn-info" data-toggle="modal" data-target="#newBooking">
+                          Add New Booking
+                        </button>
+                
+                
+            <div class="container">
+
+                 <table  id="listBooking" class=" table table-success">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                    <th scope="col"></th>
+                                </tr>            
+                            </thead>
+                            <tbody >
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <td>booked</td>
+                                    <td>2019-08-10</td>
+                                    <td>12:00</td>
+                                    <td><button onclick="" class="btn btn-danger" type="button">Delete</button></td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+            
+                    </div>
+
+
+                <!-- The Modal -->
+                <div class="modal" id="newBooking">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    
+                      <!-- Modal Header -->
+                        <div class="modal-header">
+                         <h5 class="modal-title">New Booking</h5>
+                         <button  type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                      
+
+                        <form action ="#" th:action="@{/saveNB}" th:object="${booking}" method ="post">
+                        <!-- Modal body -->
+                            <div class="modal-body">
+                            
+                            <div class="row">
+                                <div class="col text-center">
+                                    <label for="date">Date</label>
+                                    <input th:field="*{date}" readonly="readonly" id="inputDate" type="date" >
+                                </div>
+                                <div class="col text-left">
+                                        <label for="time">Time</label>
+                                        <input th:field="*{time}" onchange="CheckTime()" type="time" id="inputTime">
+                                </div>
+                                
+                            </div>
+                            </div>
+                        <!-- Modal footer -->
+                            <div class="text-center modal-footer ">
+                                <div id="cita">..</div>
+                                <!--Button save here-->
+                                <button id="saveBooking" disabled  type="submit" class="btn btn-primary" >Save</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                
+            </div>
+              
+
+        <footer class="container text-center"><hr> <p> &copy; FredSys 2019 </p> 
+        </footer>
+
+        <script src="./js/jquery-3.4.1.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/bookingM.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1"> 
+		<meta name="FredSys" content="ISO Date, UTC Date">
+		<title>Bookings Available</title>
+		<link href="./css/mycss.css" rel="stylesheet">
+		<link href="./css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	<div class="headerP">
+        <div class="page-header">
+					<h1>Ger's Garage</h1>
+		</div>
+						 
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+				<li class="nav-item ">
+					<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Mechanics Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="appointments">Appointments</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="">My vehicles</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Sign out</a>
+				</li>
+				</ul>
+			</div>
+		</nav>
+        
+
+    
+    </div>
+
+
+
+<div class="bodyZise text-center">
+	
+	<div class="sizeBooking container">
+		<ul class="nav nav-tabs">
+		
+			<li class="nav-item">
+	            <a href="#reg" class="nav-link active" data-toggle="tab">Register Vehicle</a>
+	        </li>
+	        <li class="nav-item">
+	            <a href="#veh" class="nav-link " data-toggle="tab">My Vehicles</a>
+	        </li>
+	        
+	    </ul>
+    	<div class="tab-content">
+	        
+	        <div class="tab-pane fade show active" id="reg">
+	            <!-- view Appointment -->
+	            <div class=" sizeBooking text-center ">
+					<!--Form of Booking -->
+					<form class="formData needs-validation"  action="#" th:action="@{/saveV}" th:object="${vehicle}" method="post">
+						<div class="titleForm"><h3> Register Vehicle</h3></div>
+						<div class="form-group text-left">
+						<label for="mk">Make:</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">*</span>
+							</div>
+							<input th:field="*{make}" type="text" id="mk" class="form-control" placeholder="Make" >
+						</div>
+						</div>
+						<div class="form-group text-left">
+						<label for="vl">Vehicle License:</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+									<span class="input-group-text">*</span>
+							</div>
+							<input th:field="*{vehicle_license}" type="text" id="vl" class="form-control" placeholder="Vehicle License">
+						</div>
+						</div>
+						<div class="form-group text-left">
+						<label for="et">Engine type:</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">*</span>
+							</div>
+							<select th:field="*{vehicletype.id_vehicletype}" class="form-control">
+								<option th:each="vehicletype : ${listVehicleType}" th:value="${vehicletype.id_vehicletype}" th:text="${vehicletype.name}" value="">trollano</option>
+							</select>			
+						</div>
+						</div>
+						<div class="form-group text-left">
+							<label for="vt">Vehicle type:</label>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">*</span>
+								</div>
+								<select th:field="*{enginetype.id_enginetype}" class="form-control">
+									<option th:each="enginetype : ${listEngineType}" th:value="${enginetype.id_enginetype}" th:text="${enginetype.name}" value=""></option>
+								</select>			
+							</div>
+						</div>			
+					
+						<button type="submit" class =" btnSave btn btn-primary">Save</button>
+					</form>
+					
+				</div>
+	        </div>
+	        <div class="tab-pane fade " id="veh">
+		            <!-- View of my booking -->
+						<table class="table table-bordered table-sm">
+							<thead>
+								<tr> 
+									<th scope="col">#</th> 
+									<th scope="col">Type</th> 
+									<th scope="col">Make</th>
+									<th scope="col"> V. License</th>
+									<th scope="col">Engine</th>
+									<th scope="col"></th>
+								</tr>
+							</thead>
+							<tbody id="myBooking">
+								<tr>
+										<th scope="row">1</th>
+										<td> fill my booking from database</td>
+										<td>status</td>
+										<td>status</td>
+										<td>status</td>
+										<td><button class="btn btn-primary">Delete</button></td>
+								</tr>
+							</tbody>
+						</table>
+		            
+		        </div>
+   		</div>
+ 	</div>
+
+		</div>
+
+
+
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/index.js"></script>
+	
+	
+	
+	</body>
+</html>
